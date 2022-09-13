@@ -1,0 +1,32 @@
+cript started on 2022-09-13 02:09:37-04:00
+[shivam@sjsu worksheet3]$ wget    https://s3.amazonaws.com/amazon-reviews-pds/tsv/amazon_reviews_us_Books_v1_02.tsv.gz
+--2022-09-13 02:09:59--  https://s3.amazonaws.com/amazon-reviews-pds/tsv/amazon_reviews_us_Books_v1_02.tsv.gz
+Resolving s3.amazonaws.com (s3.amazonaws.com)... 54.231.128.176
+Connecting to s3.amazonaws.com (s3.amazonaws.com)|54.231.128.176|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1329539135 (1.2G) [application/x-gzip]
+Saving to: ‘amazon_reviews_us_Books_v1_02.tsv.gz’
+
+amazon_reviews_us_Books_v 100%[=====================================>]   1.24G  68.2MB/s    in 23s
+
+2022-09-13 02:10:22 (54.4 MB/s) - ‘amazon_reviews_us_Books_v1_02.tsv.gz’ saved [1329539135/1329539135]
+
+[shivam@sjsu worksheet3]$ gzip -d amazon_reviews_us_Books_v1_02.tsv.gz
+========================================================================================================
+CUSTOMERS WITH THE MOST REVIEWS:
+
+[shivam@sjsu worksheet3]$ awk -F "\t" '{print $2}' amazon_reviews_us_Books_v1_02.tsv | sort | uniq -c | sort -nr | head -n 3
+  21922 50122160
+   9964 50732546
+   2664 52615377
+========================================================================================================
+PRODUCTS WITH THE MOST REVIEWS:
+
+[shivam@sjsu worksheet3]$ awk -F "\t" '{print $4}' amazon_reviews_us_Books_v1_02.tsv | sort | uniq -c | sort -nr | head -n 3
+   4625 043935806X
+   3739 0439139597
+   2666 0525947647
+[shivam@sjsu worksheet3]$ history > cmds.log
+[shivam@sjsu worksheet3]$ exit
+
+Script done on 2022-09-13 02:13:03-04:00

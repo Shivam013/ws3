@@ -1,0 +1,10 @@
+   1  [shivam@sjsu worksheet3]$ gzip -d amazon_reviews_us_Books_v1_02.tsv.gz
+   2  [shivam@sjsu worksheet3]$ awk -F "\t" '{print $2}' amazon_reviews_us_Books_v1_02.tsv | sort | uniq -c | sort -nr | head -n 3
+   3    21922 50122160
+   4     9964 50732546
+   5     2664 52615377
+   6  [shivam@sjsu worksheet3]$ awk -F "\t" '{print $4}' amazon_reviews_us_Books_v1_02.tsv | sort | uniq -c | sort -nr | head -n 3
+   7     4625 043935806X
+   8     3739 0439139597
+   9     2666 0525947647
+   10  [shivam@sjsu worksheet3]$ history > cmds.log
